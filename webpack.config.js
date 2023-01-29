@@ -10,6 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname,'dist'), //(el path de salida carpeta dist-distribution)
         filename: 'main.js', //(nombre del archivo resultante)
+        publicPath:'/',
     },
     mode:'production',
     resolve:{

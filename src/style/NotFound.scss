@@ -1,0 +1,50 @@
+@import 'vars';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--very-light-pink);
+}
+
+.container__notFound{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    box-shadow: 0 15px 30px rgb(#ACD9B2,1);
+    border-radius: 1rem;
+    
+    &-content{
+        max-width: 60rem;
+        text-align: center;
+        color: var(--white);
+
+        h2{
+            font-size: 18vw;
+            line-height: 1em;
+            margin: 0;
+        }
+        h4{
+            position: relative;
+            font-size: 1.5em;
+            color: var(--black);
+            background-color: var(--white);
+            font-weight: 300;
+            padding: 1rem 2rem;
+            display: inline-block;
+            border-radius: 1rem;
+        }
+        p{
+            font-weight: 1.2em;
+            padding:2rem;
+        }
+    }
+}

@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname,'dist'), //(el path de salida carpeta dist-distribution)
         filename: 'main.js', //(nombre del archivo resultante)
+        publicPath:'/',
     },
     mode:'development',
     resolve:{
@@ -40,6 +41,7 @@ module.exports = {
     ],
     devServer: { // configuración para el server
         static: path.join(__dirname, 'dist'), // ruta de nuestro dist
+        historyApiFallback: true,
         compress: true, // si deseamos comprimir
         port: 3006, // el puerto que deseamos utilizar
         open: true, // para abrir nuestro navegar automáticamente 
