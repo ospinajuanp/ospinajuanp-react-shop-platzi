@@ -12,6 +12,15 @@ module.exports = {
     mode:'development',
     resolve:{
         extensions:['.js','.jsx'], //(aquí colocaremos todas las extensiones que vamos utilizando en nuestro proyecto)
+        alias:{
+            '@icons':path.resolve(__dirname,'src/assets/icons/'),
+            '@logos':path.resolve(__dirname,'src/assets/logos/'),
+            '@components':path.resolve(__dirname,'src/components/'),
+            '@containers':path.resolve(__dirname,'src/containers/'),
+            '@pages':path.resolve(__dirname,'src/pages/'),
+            '@routes':path.resolve(__dirname,'src/routes/'),
+            '@styles':path.resolve(__dirname,'src/styles/')
+        }
     },
     module :{
         rules: [
@@ -27,6 +36,10 @@ module.exports = {
             {
                 test:/\.(scss|css)$/,
                 use:['style-loader','css-loader','sass-loader']
+            },
+            {
+                test:/\.(png|svg|jpg|gif)$/,
+                type:'asset'
             }
         ]
     },
