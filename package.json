@@ -1,0 +1,21 @@
+{
+  "name": "ospinajuanp-react-shop-platzi",
+  "version": "1.0.0",
+  "description": "Real Shop curso de platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "platzi",
+    "react",
+    "webpack",
+    "css",
+    "sass",
+    "html",
+    "javascript",
+    "ospinajuanp-reset-css"
+  ],
+  "author": "ospinajuanp <juanpo996@gmail.com>",
+  "license": "MIT"
+}
