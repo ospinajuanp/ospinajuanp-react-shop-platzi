@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import '@styles/Header.scss';
 import Menu from '@components/Menu.jsx'
 import menu from '@icons/icon_menu.svg';
@@ -6,23 +6,34 @@ import logo from '@logos/logo_yard_sale.svg';
 import AppContext from '../context/AppContext'
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import MyOrder from '../containers/MyOrder'
+import MenuMobile from '../components/MenuMobile'
 
 const Header = () => {
-	const { state, handleToggleCarrito, handleToggleAccount} = useContext(AppContext);
+	const { state, handleToggleCarrito, handleToggleAccount, handleToggleMenuMobile, useWindowSize } = useContext(AppContext);
 
 	const handleToggleOrder = () => {
 		state.account ? state.account = false : null;
+		state.menuMobile ? state.menuMobile = false : null;
 		handleToggleCarrito();
 	};
-
+	
 	const handleToggleCuenta = () => {
 		state.carrito ? state.carrito = false : null;
+		state.menuMobile ? state.menuMobile = false : null;
 		handleToggleAccount();
 	};
+	
+	const handleToggleMiniMenu = () => {
+		state.carrito ? state.carrito = false : null;
+		state.account ? state.account = false : null;
+		handleToggleMenuMobile();
+	};
 
+	const size = useWindowSize();
+	
 	return (
 		<nav>
-			<img src={menu} alt="menu" className="menu" />
+			<img src={menu} alt="menu" className="menu" onClick={handleToggleMiniMenu}/>
 			<div className="navbar-left">
 				<img src={logo} alt="logo" className="nav-logo" />
 				<ul>
@@ -57,7 +68,10 @@ const Header = () => {
 			</div>
 			{state.account && <Menu/>}
 			{state.carrito && <MyOrder/>}
+			{size.width < 740 ? (state.menuMobile && <MenuMobile/>) : state.menuMobile = false}
+			{size.width < 740 ? state.account = false : null}
 		</nav>
+		
 	);
 }
 
