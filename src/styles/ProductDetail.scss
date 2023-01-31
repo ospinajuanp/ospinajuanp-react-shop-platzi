@@ -4,7 +4,10 @@
 		width: 360px;
 		padding-bottom: 24px;
 		position: absolute;
+		top: 60px;
 		right: 0;
+		background-color: var(--white);
+		border: 1px solid var(--black);
 	}
 	.ProductDetail-close {
 		background: var(--white);

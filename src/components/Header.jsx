@@ -7,6 +7,7 @@ import AppContext from '../context/AppContext'
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import MyOrder from '../containers/MyOrder'
 import MenuMobile from '../components/MenuMobile'
+import ProductDetail from '../containers/ProductDetail'
 
 const Header = () => {
 	const { state, handleToggleCarrito, handleToggleAccount, handleToggleMenuMobile, useWindowSize } = useContext(AppContext);
@@ -72,6 +73,7 @@ const Header = () => {
 			{state.carrito && <MyOrder/>}
 			{size.width < 740 ? (state.menuMobile && <MenuMobile/>) : state.menuMobile = false}
 			{size.width < 740 ? state.account = false : null}
+			{state.activeInfo && <ProductDetail/>}
 		</nav>
 		
 	);

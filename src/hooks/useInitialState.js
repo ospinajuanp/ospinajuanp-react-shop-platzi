@@ -5,6 +5,8 @@ const initialState = {
 	carrito:false,
 	account:false,
 	menuMobile:false,
+	productInfo:[],
+	activeInfo:false,
 }
 
 const useInitialState = () => {
@@ -14,6 +16,14 @@ const useInitialState = () => {
 		setState({
 			...state,
 			cart: [...state.cart, payload]
+		});
+	};
+	
+	const addToProductInfo= (payload) => {
+		setState({
+			...state,
+			productInfo: [payload],
+			activeInfo: true
 		});
 	};
 
@@ -76,6 +86,13 @@ const useInitialState = () => {
 		return windowSize;
 	};
 
+	const desactiveProductInfo = () => {
+		setState({
+			...state,
+			activeInfo: false
+		});
+	};
+
 
 	return {
 		state,
@@ -84,7 +101,9 @@ const useInitialState = () => {
 		handleToggleCarrito,
 		handleToggleAccount,
 		handleToggleMenuMobile,
-		useWindowSize
+		useWindowSize,
+		desactiveProductInfo,
+		addToProductInfo
 	}
 }
 
