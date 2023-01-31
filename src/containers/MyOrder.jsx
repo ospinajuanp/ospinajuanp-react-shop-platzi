@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import OrderItem from '../components/OrderItem';
+import AppContext from '../context/AppContext';
 import '../styles/MyOrder.scss';
 
 import flecha from '@icons/flechita.svg'
 
 const MyOrder = () => {
+	const { state } = useContext(AppContext);
 	return (
 		<aside className="MyOrder">
 			<div className="title-container">
@@ -12,12 +14,14 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				<OrderItem />
+				{state.cart.map(product => {
+					return <OrderItem product={product} key={`orderItem-${product.id}`}/>
+				})}
 				<div className="order">
 					<p>
 						<span>Total</span>
 					</p>
-					<p>$560.00</p>
+					<p>${state.cart.map(product => { return product.price}).reduce((acumulador,valor)=>acumulador+valor,0)}</p>
 				</div>
 				<button className="primary-button">
 					Checkout

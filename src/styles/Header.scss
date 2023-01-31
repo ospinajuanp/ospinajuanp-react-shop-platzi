@@ -20,6 +20,9 @@ nav {
 	display: flex;
 	align-items: center;
 	height: 60px;
+	li{
+		cursor: pointer;
+	}
 }
 .navbar-left {
 	display: flex;
