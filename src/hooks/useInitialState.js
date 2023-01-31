@@ -3,7 +3,7 @@ import { useState } from "react";
 const initialState = {
 	cart: [],
 	carrito:false,
-	addedCart:[]
+	account:false,
 }
 
 const useInitialState = () => {
@@ -30,11 +30,19 @@ const useInitialState = () => {
 		});
 	};
 
+	const handleToggleAccount = () => {
+		setState({
+			...state,
+			account: !state.account
+		});
+	};
+
 	return {
 		state,
 		addToCart,
 		removeFromCart,
-		handleToggleCarrito
+		handleToggleCarrito,
+		handleToggleAccount
 	}
 }
 

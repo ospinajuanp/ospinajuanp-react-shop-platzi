@@ -8,16 +8,17 @@ import shoppingCart from '@icons/icon_shopping_cart.svg';
 import MyOrder from '../containers/MyOrder'
 
 const Header = () => {
-	const [ toggle, setToggle ] = useState(false);
+	const { state, handleToggleCarrito, handleToggleAccount} = useContext(AppContext);
 
-	const { state, handleToggleCarrito } = useContext(AppContext)
-
-	const handleToggle = () => {
-		setToggle(!toggle)
-	}
 	const handleToggleOrder = () => {
-		handleToggleCarrito()
-	}
+		state.account ? state.account = false : null;
+		handleToggleCarrito();
+	};
+
+	const handleToggleCuenta = () => {
+		state.carrito ? state.carrito = false : null;
+		handleToggleAccount();
+	};
 
 	return (
 		<nav>
@@ -47,14 +48,14 @@ const Header = () => {
 			</div>
 			<div className="navbar-right">
 				<ul>
-					<li className="navbar-email" onClick={handleToggle}>platzi@example.com</li>
+					<li className="navbar-email" onClick={handleToggleCuenta}>platzi@example.com</li>
 					<li className="navbar-shopping-cart" onClick={handleToggleOrder}>
 						<img src={shoppingCart} alt="shopping cart" />
 						{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
 					</li>
 				</ul>
 			</div>
-			{toggle && <Menu/>}
+			{state.account && <Menu/>}
 			{state.carrito && <MyOrder/>}
 		</nav>
 	);
