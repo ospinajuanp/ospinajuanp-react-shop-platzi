@@ -9,15 +9,14 @@ import MyOrder from '../containers/MyOrder'
 
 const Header = () => {
 	const [ toggle, setToggle ] = useState(false);
-	const [ toggleOrder, setToggleOrder ] = useState(false);
 
-	const { state } = useContext(AppContext)
+	const { state, handleToggleCarrito } = useContext(AppContext)
 
 	const handleToggle = () => {
 		setToggle(!toggle)
 	}
 	const handleToggleOrder = () => {
-		setToggleOrder(!toggleOrder)
+		handleToggleCarrito()
 	}
 
 	return (
@@ -56,7 +55,7 @@ const Header = () => {
 				</ul>
 			</div>
 			{toggle && <Menu/>}
-			{toggleOrder && <MyOrder/>}
+			{state.carrito && <MyOrder/>}
 		</nav>
 	);
 }

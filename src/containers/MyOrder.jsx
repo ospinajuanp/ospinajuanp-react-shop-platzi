@@ -6,12 +6,17 @@ import '../styles/MyOrder.scss';
 import flecha from '@icons/flechita.svg'
 
 const MyOrder = () => {
-	const { state } = useContext(AppContext);
+	const { state, handleToggleCarrito } = useContext(AppContext);
+
+	const handleToggleOrder = () => {
+		handleToggleCarrito()
+	}
+
 	return (
 		<aside className="MyOrder">
 			<div className="title-container">
-				<img src={flecha} alt="arrow" />
-				<p className="title">My order</p>
+				<img src={flecha} alt="arrow" onClick={handleToggleOrder}/>
+				<div className="title"> My order </div>
 			</div>
 			<div className="my-order-content">
 				<div className='my-order-content-list'>

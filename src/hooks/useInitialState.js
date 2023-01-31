@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const initialState = {
 	cart: [],
+	carrito:false,
 }
 
 const useInitialState = () => {
@@ -20,11 +21,19 @@ const useInitialState = () => {
 			cart: state.cart.filter(items => items.id !== payload.id),
 		});
 	}
+	const handleToggleCarrito = () => {
+		setState({
+			...state,
+			carrito: !state.carrito
+		});
+	};
+
 
 	return {
 		state,
 		addToCart,
-		removeFromCart
+		removeFromCart,
+		handleToggleCarrito,
 	}
 }
 
