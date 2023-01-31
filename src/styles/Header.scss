@@ -12,6 +12,7 @@ nav {
 	background-color: var(--white);
 }
 .menu {
+	cursor: pointer;
 	display: none;
 }
 .nav-logo {
@@ -28,6 +29,9 @@ nav {
 	li{
 		cursor: pointer;
 	}
+}
+.menu__container{
+	display: none;
 }
 .navbar-left {
 	display: flex;
@@ -80,4 +84,14 @@ nav {
 	.navbar-email {
 		display: none;
 	}
+	.navbar-right, .menu__container{
+		margin: 0;
+		min-width: 40px;
+		display: flex;
+		justify-content: center;
+	}
+	.menu__container img{
+		width:  28px;
+	}
+
 }

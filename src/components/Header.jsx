@@ -33,7 +33,9 @@ const Header = () => {
 	
 	return (
 		<nav>
-			<img src={menu} alt="menu" className="menu" onClick={handleToggleMiniMenu}/>
+			<figure className='menu__container' onClick={handleToggleMiniMenu}>
+				<img src={menu} alt="menu" className="menu" />
+			</figure>
 			<div className="navbar-left">
 				<img src={logo} alt="logo" className="nav-logo" />
 				<ul>
