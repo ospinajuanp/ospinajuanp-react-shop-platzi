@@ -4,13 +4,15 @@ import AppContext from '../context/AppContext'
 import '../styles/ProductItem.scss';
 
 import buttonAddToCard from '@icons/bt_add_to_cart.svg';
+import buttonAddedToCard from '@icons/bt_added_to_cart.svg';
 
 const ProductItem = ({ product }) => {
 	
-	const { addToCart } = useContext(AppContext);
+
+	const { state, addToCart } = useContext(AppContext);
 
 	const handleClick = item => {
-		addToCart(item)
+		!state.cart.includes(product) ? addToCart(item) : null
 	}
 
 	return (
@@ -22,7 +24,7 @@ const ProductItem = ({ product }) => {
 					<p>{product.title}</p>
 				</div>
 				<figure onClick={ () => handleClick(product)}>
-					<img src={buttonAddToCard} alt="" />
+					{state.cart.includes(product) ? <img src={buttonAddedToCard} alt="" /> : <img src={buttonAddToCard} alt="" />}
 				</figure>
 			</div>
 		</div>
