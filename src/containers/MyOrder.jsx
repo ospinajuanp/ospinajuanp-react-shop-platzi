@@ -14,18 +14,23 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				{state.cart.map(product => {
-					return <OrderItem product={product} key={`orderItem-${product.id}`}/>
-				})}
-				<div className="order">
-					<p>
-						<span>Total</span>
-					</p>
-					<p>${state.cart.map(product => { return product.price}).reduce((acumulador,valor)=>acumulador+valor,0)}</p>
+				<div className='my-order-content-list'>
+					{state.cart.map(product => {
+						return <OrderItem product={product} key={`orderItem-${product.id}`}/>
+					})}
 				</div>
-				<button className="primary-button">
-					Checkout
-				</button>
+				<div className='my-order-content-btn-space'></div>
+				<div className='my-order-content-btn'>
+					<div className="order">
+						<p>
+							<span>Total</span>
+						</p>
+						<p>${state.cart.map(product => { return product.price}).reduce((acumulador,valor)=>acumulador+valor,0)}</p>
+					</div>
+					<button className="primary-button">
+						Checkout
+					</button>
+				</div>
 			</div>
 		</aside>
 	);

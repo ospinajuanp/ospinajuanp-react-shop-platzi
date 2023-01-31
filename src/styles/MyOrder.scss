@@ -7,7 +7,7 @@
 	position: absolute;
 	right: 0;
 	top: 60px;
-	max-height: 90vh;
+	height: 94vh;
 	background-color: var(--white);
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
@@ -24,6 +24,17 @@
 .title {
 	font-size: var(--lg);
 	font-weight: bold;
+}
+.my-order-content-btn{
+	width: 289px;
+	height: 198px;
+	position: fixed;
+	bottom: 0vh;
+	background-color: var(--white);
+	border-top: 1px dotted var(--black);
+}
+.my-order-content-btn-space{
+	height: 198px;
 }
 .order {
 	display: grid;
